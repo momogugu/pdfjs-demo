@@ -5,6 +5,7 @@ class Viewer {
         this.pageRendering = false;
         this.pageNumPending = null;
         this.scale = 1;
+        this.tmpScale = 1;
         this.rotation = 0;
         this.canvas = document.getElementById('canvas')
         this.ctx = canvas.getContext('2d')
@@ -14,7 +15,9 @@ class Viewer {
         var self = this
         // Using promise to fetch the page
         self.pdfDoc.getPage(num).then(function (page) {
-            var viewport = page.getViewport(self.scale, self.rotation);
+            var scale = self.tmpScale ? self.tmpScale : self.scale
+            console.log(scale)
+            var viewport = page.getViewport(scale, self.rotation);
             self.canvas.height = viewport.height;
             self.canvas.width = viewport.width;
 
@@ -201,37 +204,21 @@ var main = function () {
         viewer.renderPage(value)
     });
 
-    document.addEventListener("fullscreenchange", function (e) {
+    document.addEventListener("fullscreenchange", (e) => {
         console.log("fullscreenchange", e);
-        if (tool.className.indexOf('none') > -1) {
-            tool.className = 'tool-box'
-        } else {
-            tool.className += ' none'
-        }
+        fullscreen(viewer, tool)
     });
-    document.addEventListener("mozfullscreenchange", function (e) {
+    document.addEventListener("mozfullscreenchange", (e) => {
         console.log("mozfullscreenchange ", e);
-        if (tool.className.indexOf('none') > -1) {
-            tool.className = 'tool-box'
-        } else {
-            tool.className += ' none'
-        }
+        fullscreen(viewer, tool)
     });
-    document.addEventListener("webkitfullscreenchange", function (e) {
+    document.addEventListener("webkitfullscreenchange", (e) => {
         console.log("webkitfullscreenchange", e);
-        if (tool.className.indexOf('none') > -1) {
-            tool.className = 'tool-box'
-        } else {
-            tool.className += ' none'
-        }
+        fullscreen(viewer, tool)
     });
-    document.addEventListener("msfullscreenchange", function (e) {
+    document.addEventListener("msfullscreenchange", (e) => {
         console.log("msfullscreenchange", e);
-        if (tool.className.indexOf('none') > -1) {
-            tool.className = 'tool-box'
-        } else {
-            tool.className += ' none'
-        }
+        fullscreen(viewer, tool)
     });
 
     $('i').on('mousemove', function () {
@@ -252,6 +239,9 @@ var main = function () {
         }
         $this.className = type;
     });
+    window.addEventListener('click', function () {
+        console.log(22)
+    })
 }
 
 var toggleFullScreen = function () {
@@ -266,6 +256,19 @@ var toggleFullScreen = function () {
     } else {
         cancelFullScreen.call(doc);
     }
+}
+
+var fullscreen = function (viewer, tool) {
+    if (tool.className.indexOf('none') > -1) {
+        viewer.tmpScale = null;
+        document.body.style.overflow = ''
+        tool.className = 'tool-box'
+    } else {
+        viewer.tmpScale = window.screen.height / viewer.canvas.height;
+        document.body.style.overflow = 'hidden'
+        tool.className += ' none'
+    }
+    viewer.renderPage(viewer.pageNum);
 }
 
 main()
