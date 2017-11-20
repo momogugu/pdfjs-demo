@@ -16,7 +16,6 @@ class Viewer {
         // Using promise to fetch the page
         self.pdfDoc.getPage(num).then(function (page) {
             var scale = self.tmpScale ? self.tmpScale : self.scale
-            console.log(scale)
             var viewport = page.getViewport(scale, self.rotation);
             self.canvas.height = viewport.height;
             self.canvas.width = viewport.width;
@@ -93,6 +92,7 @@ var getRequest = function () {
 }
 
 var main = function () {
+    window.isFullScreen = false;
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
     var url = './test.pdf';
@@ -182,7 +182,7 @@ var main = function () {
         viewer.rotate(90)
     });
     buttons.fullscreen.addEventListener('click', () => {
-        isFullScreen = toggleFullScreen()
+        toggleFullScreen()
     })
     document.getElementById('pageNumber').addEventListener('change', (event) => {
         var target = event.target;
@@ -240,7 +240,10 @@ var main = function () {
         $this.className = type;
     });
     window.addEventListener('click', function () {
-        console.log(22)
+        if (window.isFullScreen == true) {
+            viewer.pageNum++;
+            viewer.renderPage(viewer.pageNum)
+        }
     })
 }
 
@@ -263,10 +266,12 @@ var fullscreen = function (viewer, tool) {
         viewer.tmpScale = null;
         document.body.style.overflow = ''
         tool.className = 'tool-box'
+        window.isFullScreen = false;
     } else {
         viewer.tmpScale = window.screen.height / viewer.canvas.height;
         document.body.style.overflow = 'hidden'
         tool.className += ' none'
+        window.isFullScreen = true
     }
     viewer.renderPage(viewer.pageNum);
 }
