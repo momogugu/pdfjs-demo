@@ -1,0 +1,212 @@
+body {
+    background: #434343;
+}
+
+body,
+div,
+ul,
+li,
+input,
+span {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+li {
+    display: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+canvas {
+    background: #fff;
+    border: 1px solid #eee;
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tool-box {
+    height: 20px;
+    /*width: 345px;*/
+    border-radius: 5px;
+    background: #333;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -218px;
+    color: #bcbcbc;
+    padding: 15px 40px;
+    font-size: 12px;
+    position: fixed;
+    z-index: 2;
+}
+
+.none {
+    display: none;
+}
+
+#pageRotateCw {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#pageNumber {
+    border: none;
+    padding: 0;
+    color: #bcbcbc;
+    background-color: hsla(0, 0%, 100%, .09);
+    min-width: 16px;
+    text-align: right;
+    width: 40px;
+}
+
+#presentationMode {
+    /*display: none;*/
+    margin-left: 30px;
+}
+
+#customScaleOption {
+    width: 40px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border: 0;
+    position: relative;
+    top: -6px;
+    background: #fff;
+    color: #000;
+    border-radius: 2px;
+    display: inline-block;
+    text-align: center;
+}
+
+#num {
+    display: inline-block;
+    position: relative;
+    top: -6px;
+}
+
+i {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.pre-option-turn-hover {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -150px -535px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-turn {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -125px -535px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-enlarge-disabled {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -500px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-enlarge-hover {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -475px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-enlarge {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -450px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-full-hover {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -175px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-full {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -150px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-shrink-disabled {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -350px -535px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-shrink-hover {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -200px -535px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-option-shrink {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -175px -535px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-small-previous-disabled {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -75px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-small-previous-hover {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -50px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-small-previous {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -25px -560px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-small-next-disabled {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -175px -475px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-small-next-hover {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -150px -475px;
+    width: 20px;
+    height: 20px;
+}
+
+.pre-small-next {
+    background-image: url(../images/icons-1709051040.png);
+    background-position: -609px -250px;
+    width: 20px;
+    height: 20px;
+}

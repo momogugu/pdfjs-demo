@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>pdf预览</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+
+<body>
+	<div class="tool-box">
+		<span id="zoomOut">
+			<i data-type="pre-option-enlarge" class="pre-option-enlarge" title="缩小"></i>
+		</span>
+		<span id="customScaleOption">100%</span>
+		<span id="zoomIn">
+			<i data-type="pre-option-shrink" class="pre-option-shrink" title="放大"></i>
+		</span>
+		<span id="pageRotateCw">
+			<i data-type="pre-option-turn" class="pre-option-turn" title="旋转"></i>
+		</span>
+		<span id="previous">
+			<i data-type="pre-small-previous" class="pre-small-previous" title="上一页"></i>
+		</span>
+		<div id="num">
+			<input type="number" id="pageNumber" class="toolbarField pageNumber" title="Page" value="1" size="4" min="1" tabindex="15"
+			    data-l10n-id="page">
+			<span>/</span>
+			<span id="numPages" class="toolbarLabel"></span>
+		</div>
+		<span id="next">
+			<i data-type="pre-small-next" class="pre-small-next" title="下一页"></i>
+		</span>
+		<span id="presentationMode">
+			<i data-type="pre-option-full" class="pre-option-full" title="全屏"></i>
+		</span>
+	</div>
+	<div id="pages">
+		<canvas id="canvas" class="none"></canvas>
+	</div>
+	<script type="text/javascript" src="./pdf.js"></script>
+	<script type="text/javascript" src="./jquery.min.js"></script>
+	<script type="text/javascript" src="./index.js"></script>
+</body>
+
+</html>
