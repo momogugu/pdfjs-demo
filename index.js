@@ -5,7 +5,7 @@ class Viewer {
         this.pageRendering = false;
         this.pageNumPending = null;
         this.scale = 1;
-        this.tmpScale = 1;
+        this.tmpScale = null;
         this.rotation = 0;
         this.canvas = document.getElementById('canvas')
         this.ctx = canvas.getContext('2d')
