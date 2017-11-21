@@ -43,7 +43,8 @@ canvas {
     background: #333;
     bottom: 50px;
     left: 50%;
-    margin-left: -218px;
+    /* margin-left: -218px; */
+    transform: translateX(-50%);
     color: #bcbcbc;
     padding: 15px 40px;
     font-size: 12px;
